@@ -1,1 +1,35 @@
 /* Write your code here. */
+.headerContainer {
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: Roboto;
+  padding: 20px;
+  opacity: 1;
+}
+.logoContainer {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+}
+.emojilogo {
+  height: 40px;
+  width: 40px;
+  margin: 3px;
+}
+.heading {
+  color: white;
+  font-size: 20px;
+}
+.scoreContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  margin-right: 20px;
+}
+.p {
+  margin-right: 9px;
+}

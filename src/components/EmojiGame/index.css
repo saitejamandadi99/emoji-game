@@ -1,1 +1,9 @@
 /* Write your code here. */
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #9796f0;
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
+}
