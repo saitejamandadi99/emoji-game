@@ -33,3 +33,6 @@
 .p {
   margin-right: 9px;
 }
+.noScore {
+  display: none;
+}

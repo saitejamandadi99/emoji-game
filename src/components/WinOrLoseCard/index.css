@@ -1,1 +1,11 @@
 /* Write your code here. */
+.resultCardContainer {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  margin: 20px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  font-family: Roboto;
+}
