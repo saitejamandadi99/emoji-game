@@ -11,6 +11,7 @@ Quick Tip
 
 import {Component} from 'react'
 import NavBar from '../NavBar'
+import EmojiCard from '../EmojiCard'
 import './index.css'
 
 class EmojiGame extends Component {
@@ -35,6 +36,17 @@ class EmojiGame extends Component {
     return (
       <div className="appContainer">
         <NavBar score={score} topScore={topScore} />
+        <div className="gameContainer">
+          <ul className="listContainer">
+            {emojisList.map(each => (
+              <EmojiCard
+                key={each.id}
+                details={each}
+                shuffledEmojisList={this.shuffledEmojisList}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
     )
   }

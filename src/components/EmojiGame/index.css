@@ -7,3 +7,14 @@
   height: auto;
   width: 100%;
 }
+.gameContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.listContainer {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  width: 80%;
+}
