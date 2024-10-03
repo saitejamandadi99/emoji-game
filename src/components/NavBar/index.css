@@ -6,7 +6,7 @@
   justify-content: space-around;
   font-family: Roboto;
   padding: 20px;
-  opacity: 1;
+  background-color: #ffffff33;
 }
 .logoContainer {
   display: flex;
@@ -35,4 +35,17 @@
 }
 .noScore {
   display: none;
+}
+
+@media screen and (max-width: 575px) {
+  .headerContainer {
+    font-size: 10px;
+  }
+  .emojilogo {
+    height: 20px;
+    width: 20px;
+  }
+  .heading {
+    font-size: 10px;
+  }
 }

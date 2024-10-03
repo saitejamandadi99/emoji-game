@@ -16,5 +16,25 @@
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  width: 80%;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .listContainer {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .listContainer {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .listContainer {
+    width: 50%;
+  }
 }

@@ -9,26 +9,30 @@ const WinOrLoseCard = props => {
 
   return (
     <div className="resultCardContainer">
-      <div>
+      <div className="detailsContainer">
         {isWon ? ( // Render this block if the user won
           <>
-            <h1>You Won</h1>
-            <p>Best Score</p>
-            <p>12/12</p>
+            <h1 className="resultTitle">You Won</h1>
+            <p className="scoreTitle">Best Score</p>
+            <p className="playerScore">12/12</p>
           </>
         ) : (
           // Render this block if the user lost
           <>
-            <h1>You Lose</h1>
-            <p>Score</p>
-            <p>{score}/12</p>
+            <h1 className="resultTitle">You Lose</h1>
+            <p className="scoreTitle">Score</p>
+            <p className="playerScore">{score}/12</p>
           </>
         )}
-        <button type="button" onClick={onClickPlayAgain}>
+        <button
+          type="button"
+          onClick={onClickPlayAgain}
+          className="playAgainBtn"
+        >
           Play Again
         </button>
       </div>
-      <img src={imageUrl} alt="win or lose" />
+      <img src={imageUrl} alt="win or lose" className="winLogo" />
     </div>
   )
 }

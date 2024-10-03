@@ -7,8 +7,9 @@ import './index.css'
 class EmojiGame extends Component {
   constructor(props) {
     super(props)
+    const {emojisList} = props // Destructure props here
     this.state = {
-      emojisList: this.shuffleEmojis(props.emojisList), // Shuffle initially
+      emojisList: this.shuffleEmojis(emojisList), // Shuffle initially
       score: 0,
       topScore: 0,
       emojiClickedList: [],
@@ -18,19 +19,21 @@ class EmojiGame extends Component {
   }
 
   onClickPlayAgain = () => {
+    const {emojisList} = this.props // Destructure props here
     this.setState({
       score: 0,
       emojiClickedList: [],
       gameCompleted: false,
       isWon: false,
-      emojisList: this.shuffleEmojis(this.props.emojisList), // Shuffle emojis when playing again
+      emojisList: this.shuffleEmojis(emojisList), // Shuffle emojis when playing again
     })
   }
 
   didWin = () => {
     const {score} = this.state
+    const {emojisList} = this.props // Destructure props here
     // Check if score equals the number of unique emojis
-    if (score === this.props.emojisList.length) {
+    if (score === emojisList.length) {
       this.setState({gameCompleted: true, isWon: true})
     }
   }
@@ -44,24 +47,19 @@ class EmojiGame extends Component {
       this.setState({gameCompleted: true, isWon: false})
     } else {
       // Update the score and emojiClickedList
-      this.setState(
-        prevState => {
-          const newScore = prevState.score + 1
-          return {
-            score: newScore,
-            topScore: Math.max(newScore, topScore), // Update top score if new score is higher
-            emojiClickedList: [...prevState.emojiClickedList, id], // Add clicked emoji to the list
-            emojisList: this.shuffleEmojis(prevState.emojisList), // Shuffle emojis after updating the state
-          }
-        },
-        () => this.didWin(), // Call didWin in the callback of setState
-      )
+      this.setState(prevState => {
+        const newScore = prevState.score + 1
+        return {
+          score: newScore,
+          topScore: Math.max(newScore, topScore), // Update top score if new score is higher
+          emojiClickedList: [...prevState.emojiClickedList, id], // Add clicked emoji to the list
+          emojisList: this.shuffleEmojis(prevState.emojisList), // Shuffle emojis after updating the state
+        }
+      }, this.didWin) // Call didWin in the callback of setState
     }
   }
 
-  shuffleEmojis = list => {
-    return list.sort(() => Math.random() - 0.5) // Shuffle the emoji list
-  }
+  shuffleEmojis = list => list.sort(() => Math.random() - 0.5) // Simplified arrow function
 
   render() {
     const {emojisList, score, topScore, gameCompleted, isWon} = this.state // Access emojisList from state
